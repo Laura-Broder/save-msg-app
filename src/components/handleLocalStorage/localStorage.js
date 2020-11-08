@@ -4,5 +4,8 @@ export const save = (list) => {
 };
 
 export const get = () => {
+  if (!localStorage.getItem("msgList")) {
+    localStorage.setItem("msgList", JSON.stringify([]));
+  }
   return JSON.parse(localStorage.getItem("msgList"));
 };
