@@ -34,11 +34,16 @@ const List = ({ list, onClear }) => {
 
   const renderList = () => {
     return displayList.map((item, index) => {
+      let hashEmail = 0;
+      for (let i = 0; i < item.email.length; i++) {
+        hashEmail = hashEmail + item.email.charCodeAt(i);
+      }
+
       return (
         <ListItem
           key={index}
           content={item}
-          imgSrc={`https://picsum.photos/50?q=avatar&random=${index}`}
+          imgSrc={`https://picsum.photos/50?random=${hashEmail}`}
         />
       );
     });
